@@ -8,6 +8,7 @@ export default function Keyboard({ logKey = console.log }) {
 
   function keyListener({ key }) {
     console.log(key);
+    // filter out special/meta keys
     if (keys.includes(key)) {
       setActiveKey(String(key));
       logKey(String(key));
@@ -35,13 +36,14 @@ export default function Keyboard({ logKey = console.log }) {
 }
 
 function Key({ id, active }) {
+  console.log(active,id)
   return (
     <button
       className={`${
         active
           ? "bg-red-800 text-gray-200 dark:bg-red-200 dark:text-gray-800"
-          : ""
-      } uppercase rounded-md p-4 m-1 // bg-gray-300 dark:bg-gray-800 hover:bg-yellow-100 dark:hover:bg-yellow-700`}
+          : "bg-gray-300 dark:bg-gray-800"
+      } uppercase rounded-md p-4 m-1 hover:bg-yellow-100 dark:hover:bg-yellow-700`}
     >
       {id}
     </button>

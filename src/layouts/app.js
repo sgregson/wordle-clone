@@ -10,7 +10,7 @@ export default function Layout({ children }) {
       <main className="justify-self-start grid gap-2 w-full md:w-[48rem] mx-auto mb-20">
         {children}
       </main>
-      <Footer className="grid grid-cols-1 text-center mt-auto border-t p-2 // pb-[3rem] // sm:pb-2" />
+      {/* <Footer className="grid grid-cols-1 text-center mt-auto border-t p-2 // pb-[3rem] // sm:pb-2" /> */}
     </div>
   );
 }
