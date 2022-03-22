@@ -1,6 +1,9 @@
 import Head from "next/head";
+import { useState } from "react";
 import Keyboard from "../components/keyboard";
 export default function Home(props) {
+  const [letters, setLetters] = useState([]);
+
   return (
     <>
       <Head>
@@ -10,7 +13,12 @@ export default function Home(props) {
       <h1 className="text-4xl border-b-2 border-current pb-1 mb-1">
         Hello, Wordle
       </h1>
-      <Keyboard />
+      <div className="mt-20 text-5xl">{letters.join("")}</div>
+      <Keyboard
+        logKey={(key) => {
+          setLetters(letters.concat([key]));
+        }}
+      />
     </>
   );
 }

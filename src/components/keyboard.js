@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useEventListener } from "./useEventListener";
 
+const keys = "qwertyuiopasdfghjklzxcvbnm".split("");
+
 export default function Keyboard({ logKey = console.log }) {
   const [activeKey, setActiveKey] = useState("");
 
   function keyListener({ key }) {
-    setActiveKey(String(key));
-    logKey(String(key));
+    console.log(key);
+    if (keys.includes(key)) {
+      setActiveKey(String(key));
+      logKey(String(key));
+    }
   }
   useEventListener("keydown", keyListener);
 
