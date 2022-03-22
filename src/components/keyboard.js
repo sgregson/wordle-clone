@@ -27,7 +27,7 @@ export default function Keyboard({ logKey = console.log }) {
     .map((k) => <Key key={k} id={k} active={k === activeKey} />);
 
   return (
-    <div className="flex flex-col // justify-self-center fixed bottom-10">
+    <div className="flex flex-col // justify-self-center bottom-10">
       <div className="flex justify-center">{firstRow}</div>
       <div className="flex justify-center">{secondRow}</div>
       <div className="flex justify-center">{thirdRow}</div>
@@ -36,7 +36,6 @@ export default function Keyboard({ logKey = console.log }) {
 }
 
 function Key({ id, active }) {
-  console.log(active,id)
   return (
     <button
       className={`${
