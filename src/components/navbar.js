@@ -4,8 +4,8 @@ import { getTheme, setTheme, updateTheme } from "../useDarkMode";
 
 export const SSR = typeof window === "undefined";
 const baseStyle = `cursor-pointer text-center text-2xl uppercase font-medium bg-white dark:bg-zinc-800 border-2 hover:border-current`;
-const StyledLink = (props) =>
-  props.href ? (
+function StyledLink(props) {
+  return props.href ? (
     <a
       {...props}
       className={`${baseStyle} ${
@@ -18,6 +18,7 @@ const StyledLink = (props) =>
   ) : (
     <button {...props} className={`border-transparent ${baseStyle}`}></button>
   );
+}
 
 const pickerOptions = { dark: "light", light: "auto", auto: "dark" };
 export default function Nav(props) {
