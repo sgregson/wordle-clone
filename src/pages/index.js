@@ -1,12 +1,11 @@
 import Head from "next/head";
 import { useState } from "react";
-import {Keyboard, GuessGrid} from "../components";
+import { Keyboard, GuessGrid } from "../components";
 import { Giscus } from "@giscus/react";
 import { getTheme } from "../useDarkMode";
 
-
 export default function Home(props) {
-  const [guesses, setGuesses] = useState([])
+  const [guesses, setGuesses] = useState([]);
   const [letters, setLetters] = useState([]);
   const theme = getTheme();
   return (
@@ -15,32 +14,33 @@ export default function Home(props) {
         <title>wordle clone</title>
       </Head>
 
-      <div class="flex flex-col min-h-screen py-12">
+      <div className="flex flex-col min-h-screen py-12">
         <h1 className="text-4xl border-b-2 border-current pb-1 mb-1">
           Hello, Wordle
         </h1>
-        <GuessGrid letters={letters} guesses={guesses}/>
+        <GuessGrid letters={letters} guesses={guesses} />
         <Keyboard
           className="mt-auto"
           onKeyPress={(key) => {
-            if(letters.length < 5) setLetters(letters.concat([key]));
+            if (letters.length < 5) setLetters(letters.concat([key]));
           }}
           onDelete={() => {
-            if(letters.length > 0) setLetters(letters.slice(0,-1))
+            if (letters.length > 0) setLetters(letters.slice(0, -1));
           }}
           onSubmit={() => {
-            if(letters.length === 5){
+            if (letters.length === 5) {
               guesses.push(letters);
               // register a guess
               setGuesses(guesses);
               // clear the input
-              setLetters([])
+              setLetters([]);
             }
           }}
         />
       </div>
-      
-      <Giscus src="https://giscus.app/client.js"
+
+      <Giscus
+        src="https://giscus.app/client.js"
         repo="sgregson/wordle-clone"
         repoId="R_kgDOHDAmOA"
         category="Site Chat"
@@ -53,7 +53,8 @@ export default function Home(props) {
         lang="en"
         loading="lazy"
         crossorigin="anonymous"
-        async />
+        async
+      />
     </>
   );
 }
