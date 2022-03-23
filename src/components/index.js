@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { useEventListener } from "./useEventListener";
 
-const keys = "qwertyuiopasdfghjklzxcvbnm".split("");
 
-export default function Keyboard({ logKey = console.log }) {
+
+export function GuessGrid() {
+return <>guesses!</>
+}
+
+
+
+
+const keys = "qwertyuiopasdfghjklzxcvbnm".split("");
+export function Keyboard({ logKey = console.log,...props }) {
   const [activeKey, setActiveKey] = useState("");
 
   function keyListener({ key }) {
@@ -27,7 +35,7 @@ export default function Keyboard({ logKey = console.log }) {
     .map((k) => <Key key={k} id={k} active={k === activeKey} />);
 
   return (
-    <div className="flex flex-col // justify-self-center bottom-10">
+    <div className={`${props.className} flex flex-col // justify-self-center`}>
       <div className="flex justify-center">{firstRow}</div>
       <div className="flex justify-center">{secondRow}</div>
       <div className="flex justify-center">{thirdRow}</div>
