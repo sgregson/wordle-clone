@@ -1,7 +1,5 @@
-
 import { Html, Head, Main, NextScript } from "next/document";
 import { updateTheme } from "../useDarkMode";
-
 
 export default function Document() {
   return (
@@ -14,7 +12,7 @@ export default function Document() {
       </Head>
       <body className="dark:text-white dark:bg-zinc-900">
         <Main />
-        
+
         <NextScript />
       </body>
     </Html>

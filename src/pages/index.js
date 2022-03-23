@@ -59,14 +59,14 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async (context) => {
-  // fetch content from special homepage
+// export const getStaticProps = async (context) => {
+//   // fetch content from special homepage
 
-  return {
-    props: {
-      // blocks,
-      // page,
-    },
-    revalidate: 5,
-  };
-};
+//   return {
+//     props: {
+//       // blocks,
+//       // page,
+//     },
+//     revalidate: 5,
+//   };
+// };
