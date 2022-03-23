@@ -19,12 +19,23 @@ export default function Home(props) {
         <h1 className="text-4xl border-b-2 border-current pb-1 mb-1">
           Hello, Wordle
         </h1>
-        <div className="mt-20 text-5xl">{letters.join("")}</div>
-        <GuessGrid />
+        <GuessGrid letters={letters} guesses={guesses}/>
         <Keyboard
           className="mt-auto"
-          logKey={(key) => {
-            setLetters(letters.concat([key]));
+          onKeyPress={(key) => {
+            if(letters.length < 5) setLetters(letters.concat([key]));
+          }}
+          onDelete={() => {
+            if(letters.length > 0) setLetters(letters.slice(0,-1))
+          }}
+          onSubmit={() => {
+            if(letters.length === 5){
+              guesses.push(letters);
+              // register a guess
+              setGuesses(guesses);
+              // clear the input
+              setLetters([])
+            }
           }}
         />
       </div>
