@@ -10,7 +10,7 @@ module.exports = {
         // user variable font if supported by browser
         sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
         serif: ['"Inter var"', ...defaultTheme.fontFamily.serif],
-        mono: ['"Inter var"', ...defaultTheme.fontFamily.mono],
+        mono: defaultTheme.fontFamily.mono,
       },
     },
   },
